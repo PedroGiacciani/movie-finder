@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+/*CONFIGURAÇÕES GLOBAIS*/
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*CONFIGURAÇÕES DO CABEÇALHO*/
+header{
+    padding: 20px;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+header > h1{
+    margin-bottom: 10px;
+}
+
+
+/*CONFIGURAÇÕES DE MAIN*/
+main{
+    margin: 10px;
+    max-width: 1300px;
+}
+
+main > section#area-pesquisa{
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+main > section#area-pesquisa > p > input{
+    width: 45%;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.473);
+    padding: 2px;
+}
+
+/*CONFIGURAÇÕES DE RODAPÉ*/
+footer{
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+footer > p > a{
+    color: white;
+    text-decoration: none;
+}
+
+footer > p > a:hover{
+    text-decoration: underline;
+    color: rgba(255, 255, 255, 0.479);
+}
