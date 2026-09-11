@@ -28,7 +28,7 @@ export async function pesquisarFilme(nomeFilme, areaCard){
     try{
         const response = await fetch(`https://www.omdbapi.com/?apikey=c4c6f348&t=${nomeFilme}`)
         const lista = await response.json()
-        if(!lista.response){
+        if(!response.ok || lista.Title == undefined){
             throw new Error('Não foi possível pesquisar pelo filme, verifique a ortografia e tente novamente')
         }else{
             const filme = new Filme(lista.Title, lista.Released, lista.imdbRating, lista.Runtime, lista.Plot, lista.Poster, lista.Genre, lista.Director)
