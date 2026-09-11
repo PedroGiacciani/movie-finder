@@ -33,24 +33,57 @@ main{
     max-width: 1300px;
 }
 
-main > section#area-pesquisa{
+main > section#area-pesquisa, main > section#area-card-filme{
     background-color: lightgray;
     padding: 10px;
     border-radius: 6px;
+    margin-bottom: 10px;
 }
 
 main > section#area-pesquisa > p > input{
-    width: 45%;
+    width: 80%;
+    margin: 10px 10px 0px 0px;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.473);
     padding: 2px;
 }
 
+main > section#area-pesquisa > p > button#btn-pesquisa{
+    background-color: white;
+    padding: 3px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.473);
+    cursor: pointer;
+}
+
+main > section#area-pesquisa > p > button#btn-pesquisa:hover{
+    background-color: rgba(255, 255, 255, 0.418);
+}   
+
+main > section#area-card-filme{
+    min-height: 70vh;
+}
+
+main > section#area-card-filme > div#card-filme > div#card-poster{
+    text-align: center;
+}
+
+main > section#area-card-filme > div#card-filme > div#card-poster > img{
+    border: 5px solid black;
+    border-radius: 10px;
+}
+
+main > section#area-card-filme > div#card-filme > p#card-info{
+    margin-top: 10px;
+    line-height: 2em;
+    text-align: justify;
+}
 /*CONFIGURAÇÕES DE RODAPÉ*/
 footer{
     background-color: black;
     color: white;
     text-align: center;
+    padding-top: 3px;
 }
 
 footer > p > a{
