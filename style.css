@@ -41,7 +41,7 @@ main > section#area-pesquisa, main > section#area-card-filme{
 }
 
 main > section#area-pesquisa > p > input{
-    width: 80%;
+    width: 73%;
     margin: 10px 10px 0px 0px;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.473);
@@ -62,6 +62,7 @@ main > section#area-pesquisa > p > button#btn-pesquisa:hover{
 
 main > section#area-card-filme{
     min-height: 70vh;
+    text-align: center;
 }
 
 main > section#area-card-filme > div#card-filme > div#card-poster{
@@ -71,6 +72,7 @@ main > section#area-card-filme > div#card-filme > div#card-poster{
 main > section#area-card-filme > div#card-filme > div#card-poster > img{
     border: 5px solid black;
     border-radius: 10px;
+    width: 90%;
 }
 
 main > section#area-card-filme > div#card-filme > p#card-info{
@@ -95,3 +97,30 @@ footer > p > a:hover{
     text-decoration: underline;
     color: rgba(255, 255, 255, 0.479);
 }
+
+@media screen and (min-width: 930px) and (max-width: 1299px) {
+    main > section#area-card-filme > div#card-filme > div#card-poster > img
+    {
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    body{
+        font-size: 1.5em;
+    }
+    
+    main{
+        margin: 10px auto;
+    }
+
+    main > section#area-pesquisa > p > input{
+        width: 60%;
+        height: 20px;
+    }
+
+    main > section#area-card-filme > div#card-filme > div#card-poster > img
+    {
+        width: 70%;
+    }
+} 

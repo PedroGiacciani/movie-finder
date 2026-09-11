@@ -5,29 +5,46 @@ import { Filme } from "./filme.js";
 
 //c4c6f348
 
-export function pesquisarFilme(nomeFilme, areaCard){
+export async function pesquisarFilme(nomeFilme, areaCard){
+    areaCard.innerHTML = ``
     let espera = document.createElement('p')
     espera.textContent = `Pesquisando...`
     areaCard.appendChild(espera)
-    fetch(`http://www.omdbapi.com/?apikey=c4c6f348&t=${nomeFilme}`)
-    .then((response) => response.json())
-    .then((lista) => {
-        if(lista.Title == undefined){
+    // fetch(`http://www.omdbapi.com/?apikey=c4c6f348&t=${nomeFilme}`)
+    // .then((response) => response.json())
+    // .then((lista) => {
+    //     if(nomeFilme.length == 0){
+    //         throw new Error('Digite um título para procurar')
+    //     }else if(lista.Title == undefined){
+    //         throw new Error('Título não encontrado. Verifique a ortografia do nome e tente novamente!')    
+    //     }else{
+    //         const filme = new Filme(lista.Title, lista.Released, lista.imdbRating, lista.Runtime, lista.Plot, lista.Poster, lista.Genre, lista.Director)
+    //         mostrarCardFilme(filme, areaCard)
+    //         console.log(filme)            
+    //     }
+    // })
+    // .catch((erro) => {
+    //     espera.textContent = `${erro}`
+    // })
+    try{
+        const response = await fetch(`http://www.omdbapi.com/?apikey=c4c6f348&t=${nomeFilme}`)
+        const lista = await response.json()
+        if(nomeFilme.length == 0){
+            throw new Error('Digite um título para procurar')
+        }else if(lista.Title == undefined){
             throw new Error('Título não encontrado. Verifique a ortografia do nome e tente novamente!')    
         }else{
-            areaCard.innerHTML = ``
             const filme = new Filme(lista.Title, lista.Released, lista.imdbRating, lista.Runtime, lista.Plot, lista.Poster, lista.Genre, lista.Director)
             mostrarCardFilme(filme, areaCard)
-            console.log(filme)            
+            console.log(filme)
         }
-
-    })
-    .catch((erro) => {
+    }catch(erro){
         espera.textContent = `${erro}`
-    })
+    }
 }
 
 function mostrarCardFilme(filme, areaCard){
+    areaCard.innerHTML = ``
     let cardFilme = document.createElement('div')
     cardFilme.setAttribute('id', 'card-filme')
 
