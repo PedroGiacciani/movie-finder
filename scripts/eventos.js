@@ -3,8 +3,6 @@
 //IMPORTAÇÕES
 import { Filme } from "./filme.js";
 
-//c4c6f348
-
 export async function pesquisarFilme(nomeFilme, areaCard){
     areaCard.innerHTML = ``
     let espera = document.createElement('p')
