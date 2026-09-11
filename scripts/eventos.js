@@ -10,12 +10,13 @@ export async function pesquisarFilme(nomeFilme, areaCard){
     let espera = document.createElement('p')
     espera.textContent = `Pesquisando...`
     areaCard.appendChild(espera)
+    if(nomeFilme.length == 0){
+        throw new Error('Digite um título para procurar')
+    }
     // fetch(`http://www.omdbapi.com/?apikey=c4c6f348&t=${nomeFilme}`)
     // .then((response) => response.json())
     // .then((lista) => {
-    //     if(nomeFilme.length == 0){
-    //         throw new Error('Digite um título para procurar')
-    //     }else if(lista.Title == undefined){
+    //     if(lista.Title == undefined){
     //         throw new Error('Título não encontrado. Verifique a ortografia do nome e tente novamente!')    
     //     }else{
     //         const filme = new Filme(lista.Title, lista.Released, lista.imdbRating, lista.Runtime, lista.Plot, lista.Poster, lista.Genre, lista.Director)
@@ -27,16 +28,13 @@ export async function pesquisarFilme(nomeFilme, areaCard){
     //     espera.textContent = `${erro}`
     // })
     try{
-        const response = await fetch(`http://www.omdbapi.com/?apikey=c4c6f348&t=${nomeFilme}`)
+        const response = await fetch(`https://www.omdbapi.com/?apikey=c4c6f348&t=${nomeFilme}`)
         const lista = await response.json()
-        if(nomeFilme.length == 0){
-            throw new Error('Digite um título para procurar')
-        }else if(lista.Title == undefined){
-            throw new Error('Título não encontrado. Verifique a ortografia do nome e tente novamente!')    
+        if(!lista.response){
+            throw new Error('Não foi possível pesquisar pelo filme, verifique a ortografia e tente novamente')
         }else{
             const filme = new Filme(lista.Title, lista.Released, lista.imdbRating, lista.Runtime, lista.Plot, lista.Poster, lista.Genre, lista.Director)
             mostrarCardFilme(filme, areaCard)
-            console.log(filme)
         }
     }catch(erro){
         espera.textContent = `${erro}`
